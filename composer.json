@@ -1,0 +1,39 @@
+{
+    "name": "artifishall/toolbox",
+    "description": "",
+    "keywords": [],
+    "authors": [
+        {
+            "name": "Zach Chisholm",
+            "email": "zach@artifishall.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.*"
+    },
+    "autoload": {
+        "classmap": [
+          "src/Artifishall/Toolbox"
+        ],
+       "psr-4": {
+         "Artifishall\\Toolbox\\": "src"
+        },
+        "files": [
+            "src/helpers/helper.php",
+            "src/helpers/state.php",
+            "src/helpers/arrays.php",
+            "src/helpers/strings.php",
+            "src/helpers/dates.php"
+        ]
+    },
+    "license": "MIT",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Artifishall\\Toolbox\\ServiceProvider"
+            ]
+        }
+    }
+
+}
