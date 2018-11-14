@@ -13,7 +13,7 @@ Add the following to composer.json
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:artifishall/laravel-toolbox.git"
+            "url": "git@github.com:artifishall/toolbox.git"
         }
     ]
 }
