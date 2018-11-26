@@ -44,3 +44,30 @@ if (!function_exists('is_empty_date')) {
         return in_array($date, ['0000-00-00','1970-01-01']);
     }
 }
+
+if (!function_exists('array_to_time')) {
+    function array_to_time($arr){
+        return vsprintf('%s:%s %s', $arr);
+    }
+}
+
+if (!function_exists('period_array')) {
+    function period_array(){
+        return ['am' => 'am', 'pm' => 'pm'];
+    }
+}
+
+if (!function_exists('hour_array')) {
+    function hour_array(){
+        return array_combine(range(1,12),range(1,12));
+    }
+}
+
+if (!function_exists('minute_array')) {
+    function minute_array(){
+        $minutes = array_map(function($v){
+            return str_pad($v, 2, '0', STR_PAD_LEFT);
+        }, range(0,59));
+        return array_combine($minutes,$minutes);
+    }
+}
