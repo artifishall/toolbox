@@ -39,5 +39,8 @@ if (!function_exists('search_route')) {
     }
 }
 
-
-?>
+if (!function_exists('is_pagination')) {
+    function is_pagination($model){
+        return $model instanceof \Illuminate\Pagination\AbstractPaginator;
+    }
+}
