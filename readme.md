@@ -29,7 +29,7 @@ To force ssl add to the web middleware group in App\Http\Kernel.php
 ```php
 protected $middlewareGroups = [
         'web' => [
-            \Webfitters\Toolbox\Middleware\ForceSSL::class
+            \Artifishall\Toolbox\Middleware\ForceSSL::class
         ]
 ]
 ```
