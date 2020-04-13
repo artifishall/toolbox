@@ -77,7 +77,15 @@ class DBBackup extends Command
             Storage::makeDirectory('backup');
         }
 
-        $command = vsprintf('mysqldump -h %s -P %s -u %s --password=%s --add-drop-table --skip-lock-tables %s %s %s > %s/%1$s_%5$s_%9$s.sql', $arr);
+        $mysqldump = trim(vsprintf('mysqldump -h %s -P %s -u %s --password=%s --add-drop-table --skip-lock-tables %s %s %s', $arr));
+        $file = vsprintf('> %8$s/%1$s_%5$s_%9$s.sql', $arr);
+
+        if(key_exists('ssh', $db)){
+            $ssh = vsprintf('ssh %s@%s', $db['ssh']);
+            $command = sprintf('%s "%s" %s',$ssh, $mysqldump, $file);
+        }else{
+            $command = sprintf("%s %s", $mysqldump, $file);
+        }
 
         if ($this->option('debug')) {
             $this->line($command);
